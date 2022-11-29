@@ -1,0 +1,55 @@
+ 1. Inicio
+
+ 2. nombreEmpleado, x[{A-Z}, {a-z}, {BS}]
+ 3. cedula, i[0-n]
+ 4. horasMatutinas, i[0, n]
+ 5. horasNocturnas, i[0, n]
+ 6. totalMatutino, d[0, n]
+ 7. totalNocturno, d[0, n]
+ 8. valorMatutino, i[0-n] ← 10
+ 9. valorNocturno, i[0-n] ← 15
+10. adicionalNocturno, i[0-n] ← 0
+11. sueldoFinal, d[0, n]
+12. bandera, l ← true
+13. mensaje, x(1000)[{A-Z}, {a-z}, {BS}] ← ""
+14. opcion, x(10)[{a-z}] ← "s"
+15. contador, d[0-n] ← 0
+
+16. Mientras (bandera) entonces
+17.          <<"Ingrese el nombre del empleado: "
+18.          >>nombreEmpleado
+
+19.          <<"Ingrese la cédula del empleado: "
+20.          >>cedula
+
+21.          <<"Ingrese las horas matutinas trabajadas del empleado: "
+22.          >>horasMatutinas        
+
+23.          <<"Ingrese las horas nocturnas trabajadas del empleado: "
+24.          >>horasNocturnas
+
+25.          totalMatutino ← totalMatutino * horasMatutinas
+
+26.          Si horasNocturnas >= 10 entonces
+27.             adicionalNocturno  ← (valorNocturno * 10) / 100
+28.          Fin Si 
+
+29.          valorNocturno ← valorNocturno + adicionalNocturno
+30.          totalNocturno  ← valorNocturno * horasNocturnas
+31.          sueldoFinal ← totalNocturno + totalMatutino
+   
+32.          mensaje ← mensaje + "Rol del trabajador de nombre " + nombreEmpleado + " y cédula " + cedula "." + "\n\t" + "Horas matutina trabajadas: " + horasMatutinas + "\n\t" + "Horas nocturnas trabajadas: " + horasNocturnas + "Total a cancelar $ " + sueldoFinal + "\n"
+
+33.          contador ← contador + 1
+
+34.          <<"Si ya no quiere seguir ingresando datos, presione s para continuar"
+35.          >>opcion
+
+36.          Si opcion == "s"
+37.             bandera ← false
+38.          Fin Si 
+
+39. Fin Mientras
+40. <<"Nómina de Trabajadores\n" + mensaje + contador           
+
+41. Fin
